@@ -1,6 +1,6 @@
 
-																			Exception Handling Part-2 || Default Exception Handling
-																		=============================================================	
+												Exception Handling Part-2 || Default Exception Handling
+											     =============================================================	
 
 --------------------------------------
   3. Defualt Exception handling java.
@@ -33,28 +33,28 @@
 
 
 
-				Ex. 
+	Ex. 
 			
-				class Test {
-																							
-					public static void main(String args[]) {<--								|---------------|
-															  |/*This method terminate		| doMoreStuff() | <-- first remove these method entry from runtime stack  by JVM 
-						doStuff();							  |	by JVM abnormally */		|---------------|
-					}<-----------------------------------------								| doStuff()		|<--- Second remove these method entry from runtime stack  by JVM  		
-					public static void doStuff() {<------									|---------------|
-														|/*This method terminate			| Main()        |<---- Last remove these method entry from runtime stack  by JVM  
-						doMoreStuff();					|	by JVM abnormally */			-----------------
-					}<-----------------------------------											
-					public static void doMoreStuff() {<--									// After these all process JVM calls default exception handler to throw exception.
-														|/*This method terminate 
-						System.out.println(10/0);		 |	by JVM abnormally */			/*Exception int thread main :java.lang.ArithmeticException
-					} <-----------------------------------									at Test.doMoreStuff(), at Test.doStuff(), at Test.main().*/
-				}																			These exception is thrown by default exception handler.
+	class Test {
+																		
+	public static void main(String args[]) {<--					|---------------|
+						   |/*This method terminate		| doMoreStuff() | <-- first remove these method entry from runtime stack  by JVM 
+	     doStuff();				   |	by JVM abnormally */		|---------------|
+	}<-----------------------------------------					| doStuff()	|<--- Second remove these method entry from runtime stack  by JVM  		
+	  public static void doStuff() {<------						|---------------|
+						|/*This method terminate		| Main()        |<---- Last remove these method entry from runtime stack  by JVM  
+		doMoreStuff();			|	by JVM abnormally */		-----------------
+	}<-----------------------------------											
+	public static void doMoreStuff() {<--						// After these all process JVM calls default exception handler to throw exception.
+					     |/*This method terminate 
+	    System.out.println(10/0);	     |	by JVM abnormally */			/*Exception int thread main :java.lang.ArithmeticException
+	} <-----------------------------------						at Test.doMoreStuff(), at Test.doStuff(), at Test.main().*/
+}											These exception is thrown by default exception handler.
 				
 			Ex .2 		
   
 				
-			class Test {															class Test {
+			class Test {								class Test {
 				                                                                    	
 				public static void main(String args[]){                             	public static void main(String args[]){
 					                                                                		doStuff();
@@ -83,8 +83,8 @@
 	
 =========================================================================================================================================================================================================
 
-																				4. Exception Hierarchy.
-																			=============================
+											4. Exception Hierarchy.
+										     ============================
  -> Throawable class access root for java exception Hierarchy.
  
  -> Throawable class defines two child classes.
@@ -129,25 +129,25 @@
   
 	
 
-																				Throawable
-																					|
-																					|
+											  Throawable
+											      |
+											      |
 			----------------------------------------------------------------------------------------------------------------------------------------------
-			|																																			 |	
-			|																																			 |
-		Exception																																	   Error  		
-		   |																																			 |		
-		   |																																			 | 	
+			|									              					                     |	
+			|																	     |
+		Exception																	   Error  		
+		   |																		     |		
+		   |																		     | 	
 	------------------------------------------------------------------------------------------------------                    ------------------------------------------------------------
-	|										|					     |				  |				 |						  |							|				|.....
-	|										|						 |				  |	             |						  |							|				|
-  RuntimeException					  IOException			ServletException   RemoteException   InterruptedException    VirtualMachineError		AssertionError  ExceptionInInitializerError
-   |									|																						 |	
-   |->ArithmeticException				|-> EOFException																		 |-> StackOverflowError
-   |									|																						 |
-   |-> NullPointerExcetion   			|-> FileNotFoundException																 |-> OutOfMemoryError
-   |									|
-   |-> ClassCastException				|-> InterruptedException 
+	|				|			     |			|		 |			  |			  |			 |.....
+	|				|			     |			|	         |			  |			  |			 | 
+  RuntimeException		  IOException			ServletException   RemoteException   InterruptedException    VirtualMachineError      AssertionError  ExceptionInInitializerError
+   |				     |												  |	
+   |->ArithmeticException	     |-> EOFException										  |-> StackOverflowError
+   |				     |												  |
+   |-> NullPointerExcetion   	     |-> FileNotFoundException									  |-> OutOfMemoryError
+   |				     |
+   |-> ClassCastException	     |-> InterruptedException 
    |
    |-> IndexOutOfBoundsException
 		  |
