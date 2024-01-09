@@ -1,6 +1,6 @@
 
-																		Exception Handling Part-1 || Introduction
-																	================================================
+												Exception Handling Part-1 || Introduction
+											    ================================================
 
 ---------
  Agenda 
@@ -29,9 +29,8 @@
 	  2. multi-catch block.
 	  
 ========================================================================================================================================================================================================
-
-																					1. Introduction.
-																				-----------------------	
+											1. Introduction.
+										     ----------------------	
 
 ->  An unexpected and unwanted event that disturbs normal flow of the program is called exception.
 
@@ -61,8 +60,8 @@
  
 =======================================================================================================================================================================================================
 
-																						2. Runtime stack mechanisam.
-																					----------------------------------
+											2. Runtime stack mechanisam.
+										     ---------------------------------
 
 ->  For every thread JVM will create a runtime stack.
 
@@ -77,28 +76,28 @@
 	Ex. 
 
 	class Test {																										|				| |			   	  | |				| |				  |
-														|				|                                               | 				| | doMoreStuff() | | 				| |            	  |
+									|		|                                               | 		| | doMoreStuff() | | 		    | |               |
 		public static void main(String args[]) {		| doMoreStuff()	|                                               |---------------| |---------------| |---------------| |---------------|
-														|---------------|   ----------------------------->              |  doStuff()    |>|   doStuff()   |>|  	doStuff()   |>|               |
-			doStuff();									|  doStuff()    |                                               |---------------| |---------------| |---------------| |---------------|
-		}												|---------------|                                         |---->|   main()      | |   main  ()    | |    Main()     | |   main      <-|
-		public static void doStuff() {					|   main      <-|------- Each Entery in the stack is called     ----------------- ----------------- ----------------- -----------------
-														-----------------		Activation record or stack frame         Runtime stack     Runtime stack     Runtime stack     Runtime stack 
+									|---------------|   ----------------------------->              |  doStuff()    |>|   doStuff()   |>|  	doStuff()   |>|               |
+			doStuff();					|  doStuff()    |                                               |---------------| |---------------| |---------------| |---------------|
+		}							|---------------|                                         |---->|   main()      | |   main  ()    | |    Main()     | |   main      <-|
+		public static void doStuff() {				|   main        |------- Each Entery in the stack is called     ----------------- ----------------- ----------------- -----------------
+									-----------------	 Activation record or stack frame         Runtime stack     Runtime stack     Runtime stack     Runtime stack 
 			doMoreStuff();								 Runtime stack 
-		}													for main 
-		public static void doMoreStuff() {					 thread 
+		}										for main 
+		public static void doMoreStuff() {					        thread 
 			
-			System.out.println("Hello");			|				|    |				 | 	  |				  | |			    | |				  | |				|  	|				| 
-		}                                           |     	        |    |            	 |    | 			  | | doMoreStuff() | | 			  | |            	|   |     	        | 
-		                                            |---------------|    |---------------|    |---------------| |---------------| |---------------| |---------------|   |---------------| 
-	} // Hello                                      |               |--> |               | -->|  doStuff()    |>|   doStuff()   |>|  	doStuff() |>|               |-->|               |-
-                                                    |---------------|    |---------------|    |---------------| |---------------| |---------------| |---------------|   |---------------| 
-                                                    |               |    |   main        |    |   main()      | |   main  ()    | |    Main()     | |   main      <-|   |               | 
-                                                    -----------------    -----------------    ----------------- ----------------- ----------------- -----------------   ----------------- 
-                                                     Runtime stack 																										 This empty stack 		
-													   for main 																										 distroyed by JVM 
-														Thread 
-																					This is stack Trace mechanisam.
+			System.out.println("Hello");	|		|    |		     | 	  |		  | |		    | |		      | |		|   |		    | 
+		}                                       |     	        |    |               |    | 		  | | doMoreStuff() | | 	      | |            	|   |     	    | 
+		                                        |---------------|    |---------------|    |---------------| |---------------| |---------------| |---------------|   |---------------| 
+	} // Hello                                      |               |--> |               | -->|  doStuff()    |>|   doStuff()   |>|  doStuff()    |>|               |-->|               |-
+                                                    	|---------------|    |---------------|    |---------------| |---------------| |---------------| |---------------|   |---------------| 
+                                                    	|               |    |   main        |    |   main()      | |   main  ()    | |    Main()     | |   main      <-|   |               | 
+                                                    	-----------------    -----------------    ----------------- ----------------- ----------------- -----------------   ----------------- 
+                                                         Runtime stack 													     This empty stack 		
+							 for main 													     distroyed by JVM 
+							  Thread 
+													This is stack Trace mechanisam.
 
 
 
